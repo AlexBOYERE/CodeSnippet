@@ -9,7 +9,7 @@ import MainCSnippet from './components/MainCSnippet.vue'
     <Navbar />
   </header>
 
-  <main>
+  <main class="pt-5">
     <div class="flex flex-wrap justify-center gap-5">
       <MainCSnippet v-for="index in 10" :key="index" />
     </div>
