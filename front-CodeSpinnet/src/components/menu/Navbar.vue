@@ -1,3 +1,10 @@
+<script setup>
+import { useModal } from '@/composables/useModal';
+import ModalForm from '@/components/modals/createCSnippetModal.vue';
+
+const { isModalOpen, openModal, closeModal, formData } = useModal();
+</script>
+
 <template>
   <div class="navbar bg-base-100 px-4">
     <!-- Section gauche : Logo + Barre de recherche -->
@@ -14,7 +21,8 @@
 
     <!-- Section centre : Bouton "New CSnippet" -->
     <div class=" flex flex-1 justify-center">
-      <button type="button" class="btn">New CSnippet</button>
+      <button @click="openModal" type="button" class="btn">New CSnippet</button>
+      <ModalForm :isOpen="isModalOpen" :closeModal="closeModal" :formData="formData" />
     </div>
 
     <!-- Section droite : Liens + Profil -->

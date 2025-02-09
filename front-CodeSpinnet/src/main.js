@@ -2,7 +2,10 @@ import './assets/main.css'
 
 import { createApp } from 'vue'
 import App from './App.vue'
+import router from '@/router/index.js'
 
-import 'noty/lib/noty.css';
+import 'noty/lib/noty.css'
 
-createApp(App).mount('#app')
+const app = createApp(App)
+app.use(router)
+app.mount('#app')
