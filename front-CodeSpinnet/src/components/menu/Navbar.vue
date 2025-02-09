@@ -9,7 +9,7 @@ const { isModalOpen, openModal, closeModal, formData } = useModal();
   <div class="navbar bg-base-100 px-4">
     <!-- Section gauche : Logo + Barre de recherche -->
     <div class="flex flex-1 justify-start">
-      <a class="btn btn-ghost text-xl">CodeSnippet</a>
+      <router-link to="/" class="btn btn-ghost">CodeSnippet</router-link>
       <div class="form-control">
         <input
           type="text"
@@ -28,9 +28,9 @@ const { isModalOpen, openModal, closeModal, formData } = useModal();
     <!-- Section droite : Liens + Profil -->
     <div class="flex justify-end gap-2">
       <nav class="hidden md:flex">
-        <a href="#" class="btn btn-ghost">À la une</a>
-        <a href="#" class="btn btn-ghost">Tendances</a>
-        <a href="#" class="btn btn-ghost">Privés</a>
+        <router-link to="/" class="btn btn-ghost">À la une</router-link>
+        <router-link to="/trend" class="btn btn-ghost">Tendances</router-link>
+        <router-link to="/private" class="btn btn-ghost">Privé</router-link>
       </nav>
 
       <!-- Menu Profil -->
