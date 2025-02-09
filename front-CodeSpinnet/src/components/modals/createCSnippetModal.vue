@@ -1,41 +1,47 @@
 <script setup>
-import { ref, watch } from "vue";
-import {useNotification} from "@/composables/useNotification.js";
+import { ref, watch } from 'vue'
+import { useNotification } from '@/composables/useNotification.js'
 
-const { showNotification } = useNotification();
-const props = defineProps(["isOpen", "closeModal", "formData"]);
-const emit = defineEmits(["update:formData"]);
+// Gérer le formulaire
+const { showNotification } = useNotification()
+const props = defineProps(['isOpen', 'closeModal', 'formData'])
+const emit = defineEmits(['update:formData'])
 
-const localFormData = ref({ ...props.formData });
+const localFormData = ref({ ...props.formData })
 
 watch(
   () => props.formData,
   (newValue) => {
-    localFormData.value = { ...newValue };
+    localFormData.value = { ...newValue }
   },
-  { deep: true }
-);
+  { deep: true },
+)
 
-const tagOptions = ["JavaScript", "Vue.js", "Tailwind", "Node.js", "Python"];
+const tagOptions = ['JavaScript', 'Vue.js', 'Tailwind', 'Node.js', 'Python']
 
 const submitForm = () => {
-  emit("update:formData", localFormData.value);
+  emit('update:formData', localFormData.value)
 
-  let visibility = localFormData.value.isPrivate ? 'privé ! 🕵️' : 'public ! 🔥';
-  showNotification('Le code est bien envoyé en ' + visibility);
+  let visibility = localFormData.value.isPrivate ? 'privé ! 🕵️' : 'public ! 🔥'
+  showNotification('Le code est bien envoyé en ' + visibility)
 
-  props.closeModal();
-};
+  props.closeModal()
+}
 </script>
 
 <template>
   <Teleport to="body">
-    <div v-if="isOpen" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+    <div
+      v-if="isOpen"
+      class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50"
+    >
       <div class="bg-white p-6 rounded-xl shadow-2xl w-full max-w-lg transition-all duration-300">
         <!-- Titre et bouton de fermeture -->
         <div class="flex justify-between items-center mb-4">
           <h2 class="text-2xl font-semibold text-gray-800">Créer un Snippet</h2>
-          <button @click="closeModal" class="text-gray-500 hover:text-gray-700 text-2xl font-bold">&times;</button>
+          <button @click="closeModal" class="text-gray-500 hover:text-gray-700 text-2xl font-bold">
+            &times;
+          </button>
         </div>
 
         <!-- Formulaire -->
@@ -68,10 +74,15 @@ const submitForm = () => {
           <div>
             <label class="block text-sm font-medium text-gray-700">Tags</label>
             <div class="flex flex-wrap gap-2 mt-2">
+              <!-- Duplique le bouton autant qu'il y a de tag -->
               <button
                 v-for="tag in tagOptions"
                 :key="tag"
-                @click="localFormData.tags.includes(tag) ? localFormData.tags.splice(localFormData.tags.indexOf(tag), 1) : localFormData.tags.push(tag)"
+                @click="
+                  localFormData.tags.includes(tag)
+                    ? localFormData.tags.splice(localFormData.tags.indexOf(tag), 1)
+                    : localFormData.tags.push(tag)
+                "
                 class="px-3 py-1 rounded-full border text-black transition"
                 :class="{ 'bg-blue-500 text-white': localFormData.tags.includes(tag) }"
                 type="button"
@@ -93,16 +104,27 @@ const submitForm = () => {
 
           <!-- PRIVÉ OU PUBLIC -->
           <div class="flex items-center gap-2">
-            <input type="checkbox" v-model="localFormData.isPrivate" class="w-5 h-5 text-blue-600">
+            <input
+              type="checkbox"
+              v-model="localFormData.isPrivate"
+              class="w-5 h-5 text-blue-600"
+            />
             <label class="text-sm text-gray-700">Snippet Privé</label>
           </div>
 
           <!-- BOUTONS -->
           <div class="flex justify-end gap-3">
-            <button type="button" @click="closeModal" class="px-4 py-2 border text-gray-600 hover:bg-gray-100 transition">
+            <button
+              type="button"
+              @click="closeModal"
+              class="px-4 py-2 border text-gray-600 hover:bg-gray-100 transition"
+            >
               Annuler
             </button>
-            <button type="submit" class="px-4 py-2 bg-blue-500 text-white font-semibold shadow-md hover:bg-blue-600 transition">
+            <button
+              type="submit"
+              class="px-4 py-2 bg-blue-500 text-white font-semibold shadow-md hover:bg-blue-600 transition"
+            >
               Enregistrer
             </button>
           </div>
@@ -123,6 +145,7 @@ const submitForm = () => {
     transform: scale(1);
   }
 }
+
 .animate-fadeIn {
   animation: fadeIn 0.3s ease-out;
 }

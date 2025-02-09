@@ -10,4 +10,3 @@ import MainCSnippet from '@/components/MainCSnippet.vue'
     </div>
   </div>
 </template>
-
