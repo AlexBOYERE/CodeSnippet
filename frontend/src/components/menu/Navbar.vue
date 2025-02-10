@@ -1,8 +1,8 @@
 <script setup>
-import { useModal } from '@/composables/useModal';
+import { useModalCSnippet } from '@/composables/useModalCSnippet.js';
 import ModalForm from '@/components/modals/createCSnippetModal.vue';
 
-const { isModalOpen, openModal, closeModal, formData } = useModal();
+const { isModalOpen, openModal, closeModal, formData } = useModalCSnippet();
 </script>
 
 <template>

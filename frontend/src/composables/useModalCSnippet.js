@@ -1,6 +1,6 @@
 import { ref } from "vue";
 
-export function useModal() {
+export function useModalCSnippet() {
   const isModalOpen = ref(false);
 
   // Modèle de données pour le formulaire
@@ -8,6 +8,7 @@ export function useModal() {
     title: "",
     description: "",
     tags: [],
+    languages: [],
     code: "",
     isPrivate: false,
   });
@@ -17,6 +18,7 @@ export function useModal() {
       title: "",
       description: "",
       tags: [],
+      languages: [],
       code: "",
       isPrivate: false,
     };

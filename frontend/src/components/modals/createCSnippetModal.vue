@@ -17,7 +17,8 @@ watch(
   { deep: true },
 )
 
-const tagOptions = ['JavaScript', 'Vue.js', 'Tailwind', 'Node.js', 'Python']
+const tagOptions = ['IA', 'Ergonomie', 'Call API']
+const languagesOptions = ['JavaScript', 'Vue.js', 'Tailwind', 'Node.js', 'Python']
 
 const submitForm = () => {
   emit('update:formData', localFormData.value)
@@ -70,25 +71,28 @@ const submitForm = () => {
             ></textarea>
           </div>
 
-          <!-- TAGS -->
-          <div>
-            <label class="block text-sm font-medium text-gray-700">Tags</label>
-            <div class="flex flex-wrap gap-2 mt-2">
-              <!-- Duplique le bouton autant qu'il y a de tag -->
-              <button
-                v-for="tag in tagOptions"
-                :key="tag"
-                @click="
-                  localFormData.tags.includes(tag)
-                    ? localFormData.tags.splice(localFormData.tags.indexOf(tag), 1)
-                    : localFormData.tags.push(tag)
-                "
-                class="px-3 py-1 rounded-full border text-black transition"
-                :class="{ 'bg-blue-500 text-white': localFormData.tags.includes(tag) }"
-                type="button"
-              >
-                {{ tag }}
-              </button>
+<!--          Ne fonctionne pas encore -->
+          <div class="flex flex-wrap gap-4">
+            <!-- LANGUAGES -->
+            <div class="w-full md:w-1/2">
+              <label class="block text-sm font-medium text-gray-700">Langages</label>
+              <Multiselect
+                v-model="localFormData.languages"
+                :options="languagesOptions"
+                mode="tags"
+                class="border border-gray-300 rounded-lg shadow-sm"
+              />
+            </div>
+
+            <!-- TAGS -->
+            <div class="w-full md:w-1/2">
+              <label class="block text-sm font-medium text-gray-700">Tags</label>
+              <Multiselect
+                v-model="localFormData.tags"
+                :options="tagOptions"
+                mode="tags"
+                class="border border-gray-300 rounded-lg shadow-sm"
+              />
             </div>
           </div>
 
