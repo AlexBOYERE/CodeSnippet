@@ -1,6 +1,8 @@
 <script setup>
 import { ref, watch } from 'vue'
 import { useNotification } from '@/composables/useNotification.js'
+import "@vueform/multiselect/themes/default.css";
+import Multiselect from '@vueform/multiselect' // Languages et tags
 
 // Gérer le formulaire
 const { showNotification } = useNotification()
@@ -39,7 +41,7 @@ const submitForm = () => {
       <div class="bg-white p-6 rounded-xl shadow-2xl w-full max-w-lg transition-all duration-300">
         <!-- Titre et bouton de fermeture -->
         <div class="flex justify-between items-center mb-4">
-          <h2 class="text-2xl font-semibold text-gray-800">Créer un Snippet</h2>
+          <h2 class="text-2xl font-semibold text-gray-900">Créer un Snippet</h2>
           <button @click="closeModal" class="text-gray-500 hover:text-gray-700 text-2xl font-bold">
             &times;
           </button>
@@ -49,7 +51,7 @@ const submitForm = () => {
         <form @submit.prevent="submitForm" class="space-y-4">
           <!-- TITRE -->
           <div>
-            <label class="block text-sm font-medium text-gray-700">Titre</label>
+            <label class="block text-sm font-medium text-gray-900">Titre</label>
             <input
               v-model="localFormData.title"
               type="text"
@@ -62,7 +64,7 @@ const submitForm = () => {
 
           <!-- DESCRIPTION -->
           <div>
-            <label class="block text-sm font-medium text-gray-700">Description</label>
+            <label class="block text-sm font-medium text-gray-900">Description</label>
             <textarea
               v-model="localFormData.description"
               placeholder="Ajoutez une description..."
@@ -71,27 +73,26 @@ const submitForm = () => {
             ></textarea>
           </div>
 
-<!--          Ne fonctionne pas encore -->
           <div class="flex flex-wrap gap-4">
             <!-- LANGUAGES -->
             <div class="w-full md:w-1/2">
-              <label class="block text-sm font-medium text-gray-700">Langages</label>
+              <label class="block text-sm font-medium text-gray-900">Langages</label>
               <Multiselect
                 v-model="localFormData.languages"
                 :options="languagesOptions"
                 mode="tags"
-                class="border border-gray-300 rounded-lg shadow-sm"
+                class="border border-gray-300 text-gray-500 rounded-lg shadow-sm"
               />
             </div>
 
             <!-- TAGS -->
             <div class="w-full md:w-1/2">
-              <label class="block text-sm font-medium text-gray-700">Tags</label>
+              <label class="block text-sm font-medium text-gray-900">Tags</label>
               <Multiselect
                 v-model="localFormData.tags"
                 :options="tagOptions"
                 mode="tags"
-                class="border border-gray-300 rounded-lg shadow-sm"
+                class="border border-gray-300 text-gray-500 rounded-lg shadow-sm"
               />
             </div>
           </div>
