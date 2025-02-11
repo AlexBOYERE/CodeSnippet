@@ -1,7 +1,8 @@
 <script setup>
 import { ref, watch } from 'vue'
 import { useNotification } from '@/composables/useNotification.js'
-import "@vueform/multiselect/themes/default.css";
+// import "@vueform/multiselect/themes/default.css";
+import "@/assets/components/multiselect.css";
 import Multiselect from '@vueform/multiselect' // Languages et tags
 
 // Gérer le formulaire
@@ -73,6 +74,7 @@ const submitForm = () => {
             ></textarea>
           </div>
 
+          <!-- Languages et Tags -->
           <div class="flex flex-wrap gap-4">
             <!-- LANGUAGES -->
             <div class="w-full md:w-1/2">
