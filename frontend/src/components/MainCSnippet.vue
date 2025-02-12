@@ -42,11 +42,13 @@ const voteColor = computed(() => {
 const voteUp = () => {
   voteCount.value++
   hasVoted.value = true
+  showNotification('Vous avez voté ! 🔥', 'success')
 }
 
 const voteDown = () => {
   voteCount.value--
   hasVoted.value = true
+  showNotification('Vous avez voté ! ❄️', 'success')
 }
 </script>
 
