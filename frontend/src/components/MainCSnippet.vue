@@ -57,7 +57,7 @@ const voteDown = () => {
       <div class="flex justify-between items-center mb-4">
         <h2 class="text-lg font-semibold text-gray-800">
           Fonction Hello World
-          <span class="badge badge-secondary bg-purple-500 text-white px-2 py-1 rounded-md text-xs ml-2">
+          <span class="badge badge-secondary text-white px-2 py-1 rounded-md text-xs ml-2">
             NEW
           </span>
         </h2>
