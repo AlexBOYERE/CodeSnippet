@@ -110,16 +110,16 @@ const voteDown = () => {
 
       <!--  TAGS + LANGUAGE    -->
       <div class="mt-4 flex flex-wrap gap-2">
-        <span class="badge badge-outline bg-gray-200 text-gray-700 px-3 py-1 rounded-md text-xs">
+        <span class="badge badge-outline bg-gray-500 text-gray-700 px-3 py-1 rounded-md text-xs">
           JavaScript
         </span>
-        <span class="badge badge-outline bg-gray-200 text-gray-700 px-3 py-1 rounded-md text-xs">
+        <span class="badge badge-outline bg-gray-500 text-gray-700 px-3 py-1 rounded-md text-xs">
           JIRA
         </span>
-        <span class="badge badge-outline bg-gray-200 text-gray-700 px-3 py-1 rounded-md text-xs">
+        <span class="badge badge-outline bg-gray-500 text-gray-700 px-3 py-1 rounded-md text-xs">
           API
         </span>
-        <span class="badge badge-outline bg-gray-200 text-gray-700 px-3 py-1 rounded-md text-xs">
+        <span class="badge badge-outline bg-gray-500 text-gray-700 px-3 py-1 rounded-md text-xs">
           IA
         </span>
       </div>
