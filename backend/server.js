@@ -3,7 +3,9 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const cors = require("cors");
 const bodyParser = require("body-parser");
+
 const userRoutes = require("./routes/UserRoutes");
+const codeSnippetRoutes = require("./routes/CodeSnippetRoutes");
 
 dotenv.config();
 const app = express();
@@ -22,6 +24,8 @@ app.get("/", (req, res) => {
 })
 
 app.use("/api/user", userRoutes);
+
+app.use("/api/codesnippet", codeSnippetRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Serveur démarré sur le port ${PORT}`));

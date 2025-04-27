@@ -8,8 +8,6 @@ const CodeSnippetSchema = new mongoose.Schema({
     score: {type: Number, required: true},
     language: {type: String, required: true},
     author: {type: String, required: true},
-    updatedAt: {type: String, required: true},
-    createdAt: {type: String, required: true},
 }, {timestamps: true});
 
 module.exports = mongoose.model('CodeSnippet', CodeSnippetSchema);

@@ -5,11 +5,12 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 
-// Route d'inscription
-router.get("/", async (req, res) => {
+// Route test
+router.get("/test", async (req, res) => {
     res.status(200).json({})
 })
 
+// Route d'inscription
 router.post("/register", async (req, res) => {
     try {
         const { name, email, password } = req.body;
